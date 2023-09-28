@@ -16,11 +16,7 @@ def main(args, settings):
     s3_file_name = '{0}.tar.gz'.format(timestamp)
     archive_file = '{0}/{1}'.format(backup_dir, s3_file_name)
 
-    session = boto3.Session(
-        aws_access_key_id=aws_access_key_id,
-        aws_secret_access_key=aws_secret_access_key,
-        region_name=aws_default_region
-    )
+    session = boto3.Session()
 
     s3 = session.resource(
         service_name='s3',
