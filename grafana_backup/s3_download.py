@@ -12,9 +12,7 @@ def main(args, settings):
     aws_secret_access_key = settings.get("AWS_SECRET_ACCESS_KEY")
     aws_endpoint_url = settings.get("AWS_ENDPOINT_URL")
 
-    session = boto3.Session(
-        aws_access_key_id=aws_access_key_id, aws_secret_access_key=aws_secret_access_key, region_name=aws_default_region
-    )
+    session = boto3.Session()
 
     s3 = session.resource(service_name="s3", endpoint_url=aws_endpoint_url)
 
